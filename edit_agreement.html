@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Agreement</title>
+    
+
+    <link rel="stylesheet" href="add_agreement.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <button
+            class="back-btn"
+            onclick="history.back()">
+
+            ←
+
+        </button>
+
+        <h2>Edit Agreement</h2>
+
+    </header>
+
+    <form
+        id="agreementForm"
+        class="container">
+
+        <!-- Property -->
+
+        <div class="card">
+
+            <div class="card">
+
+    <div class="card-header">
+
+        <h3>🏢 Property Information</h3>
+
+        <button
+            type="button"
+            class="close-btn"
+            onclick="window.location.href='agreements.html'">
+            ✕
+        </button>
+
+    </div>
+            <input
+                type="text"
+                id="building_name"
+                placeholder="Building Name"
+                required>
+
+            <input
+                type="text"
+                id="token_no"
+                placeholder="Token Number">
+
+            <input
+                type="text"
+                id="agent_name"
+                placeholder="Agent Name">
+
+        </div>
+
+        <!-- Payment -->
+
+        <div class="card">
+
+            <h3>💰 Payment Information</h3>
+
+            <input
+                type="number"
+                id="total_pay"
+                placeholder="Total Amount">
+
+            <input
+                type="number"
+                id="received"
+                placeholder="Received Amount">
+
+        </div>
+
+        <!-- Contact -->
+
+        <div class="card">
+
+            <h3>📞 Contact Information</h3>
+            <input
+                type="text"
+                id="owner_name"
+                placeholder="Owner Name">
+
+            <input
+                type="text"
+                id="owner_contact"
+                placeholder="Owner Contact">
+
+            <input
+                type="text"
+                id="tenant_name"
+                placeholder="Tenant Name">
+
+            <input
+                type="text"
+                id="tenant_no"
+                placeholder="Tenant Number">
+
+        </div>
+
+        <!-- Status -->
+
+        <div class="card">
+
+            <h3>📋 Agreement Status</h3>
+
+            <select id="status">
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="Registered">
+                    Registered
+                </option>
+
+                <option value="Cancel">
+                    Cancel
+                </option>
+
+            </select>
+
+            <input
+                type="date"
+                id="renewal_date">
+
+        </div>
+
+        <!-- Remarks -->
+
+        <div class="card">
+
+            <h3>📝 Remarks</h3>
+
+            <textarea
+                id="remarks"
+                rows="4"
+                placeholder="Enter notes">
+            </textarea>
+
+        </div>
+
+        <!-- <button
+            type="submit"
+            class="save-btn">
+
+            Save Agreement
+
+        </button> -->
+
+        <button type="submit"
+        class="save-btn">
+    Update Agreement
+</button>
+
+    </form>
+    <script src="config.js"></script>
+    <script src="edit_agreement.js"></script>
+<div id="messageBox" class="message-box"></div>
+</body>
+<nav class="bottom-nav">
+
+        <a href="dashboard.html" id="nav-home">🏠</a>
+        <a href="agreements.html" id="nav-agreements">📋</a>
+        <!-- <a href="#" onclick="goToRenewals()"> 🔔 </a> -->
+        <a href="profile.html" id="nav-profile"> 👤 </a>
+
+    </nav>
+</html>

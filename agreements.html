@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Agreements</title>
+
+    <link rel="stylesheet" href="agreements.css">
+</head>
+ 
+<body>
+
+    <header class="header">
+
+        <button onclick="history.back()">
+            ←
+        </button>
+
+        <h2>Agreements</h2>
+
+    </header>
+
+    <div class="container">
+
+        <input
+            id="searchBox"
+            type="text"
+            placeholder="Search by Building / Token"
+            class="search-box">
+
+        <div id="agreementList">
+
+        </div>
+
+       
+
+    </div>
+<div id="deleteModal" class="modal">
+
+    <div class="modal-content">
+
+        <h3>Delete Agreement</h3>
+
+        <p>
+            Are you sure you want to delete this agreement?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel-btn"
+                onclick="closeDeleteModal()">
+                Cancel
+            </button>
+
+            <button
+                class="confirm-delete-btn"
+                onclick="confirmDelete()">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="messageBox" class="message-box"></div>
+<script src="config.js"></script>
+<script src="agreements.js"></script>
+</body>
+
+    <button
+        class="floating-btn"
+        onclick="location.href='add_agreement.html'">
+
+        +
+
+    </button>
+<nav class="bottom-nav">
+
+        <a href="dashboard.html" id="nav-home">🏠</a>
+        <a href="agreements.html" id="nav-agreements">📋</a>
+        <!-- <a href="#" onclick="goToRenewals()"> 🔔 </a> -->
+        <a href="profile.html" id="nav-profile"> 👤 </a>
+
+    </nav>
+
+    </nav></html>

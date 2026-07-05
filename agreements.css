@@ -1,0 +1,297 @@
+body{
+    margin:0;
+    background:#f4f7fb;
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.header button{
+    border:none;
+    background:none;
+    color:white;
+    font-size:22px;
+}
+
+.container{
+    padding:15px;
+}
+
+.search-box{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.agreement-card{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.agreement-card h3{
+    margin-top:0;
+}
+
+.agreement-card button{
+
+    margin-top:10px;
+
+    width:100%;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:8px;
+}
+
+
+
+
+
+.action-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.action-buttons button{
+    flex:1;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+}
+
+.view-btn{
+    background:#2563eb;
+}
+
+.edit-btn{
+    background:#f59e0b;
+}
+
+.delete-btn{
+    background:#ef4444;
+}
+
+
+
+
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:350px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    text-align:center;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.modal-buttons button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.cancel-btn{
+    background:#e2e8f0;
+}
+
+.confirm-delete-btn{
+    background:#ef4444;
+    color:white;
+}
+
+
+.message-box{
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translate(-50%);
+
+    background:white;
+    color:#333;
+
+    padding:15px 25px;
+
+    border-radius:10px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+
+    display:none;
+
+    z-index:10000;
+
+    font-weight:600;
+}
+
+.message-box.show{
+    display:block;
+}
+
+.message-box.success{
+    border-left:5px solid #22c55e;
+}
+
+.message-box.error{
+    border-left:5px solid #ef4444;
+}
+
+
+#agreementList{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+@media(max-width:768px){
+
+    #agreementList{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:10px;
+}
+
+.card-actions{
+    display:flex;
+    gap:5px;
+}
+
+.icon-btn{
+    width:32px;
+    height:32px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#f1f5f9;
+
+    cursor:pointer;
+}
+
+.icon-btn.delete{
+    background:#fee2e2;
+}
+
+.view-btn{
+    width:100%;
+    margin-top:10px;
+}
+
+.bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.bottom-nav a{
+    text-decoration: none;
+    font-size: 24px;
+    color: #888;
+    transition: 0.3s;
+}
+
+.bottom-nav a:hover{
+    transform: scale(1.1);
+}
+
+.bottom-nav a.active{
+    color: #2563eb;
+}
+
+.bottom-nav .active{
+    color: #2563eb;
+    font-weight: bold;
+}
+
+body{
+    padding-bottom: 80px;
+}
+html,
+body{
+    overflow-x: hidden;
+}   
+
+.floating-btn{
+    position:fixed;
+    right:20px;
+    bottom:80px;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#2563eb;
+    color:white;
+
+    font-size:28px;
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+}

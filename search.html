@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Agreements</title>
+
+    <link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <button onclick="history.back()">←</button>
+
+        <h2>Search Agreements</h2>
+
+    </header>
+
+    <div class="container">
+
+        <input
+            type="text"
+            id="searchText"
+            class="search-box"
+            placeholder="Building, Token, Agent..."
+        >
+
+        <button
+            class="view-btn"
+            onclick="searchAgreements()">
+            Search
+        </button>
+
+        <div id="results"></div>
+
+    </div>
+    <script src="config.js"></script>
+    <script src="search.js"></script>
+
+</body>
+<nav class="bottom-nav">
+
+        <a href="dashboard.html" id="nav-home">🏠</a>
+        <a href="agreements.html" id="nav-agreements">📋</a>
+        <!-- <a href="#" onclick="goToRenewals()"> 🔔 </a> -->
+        <a href="profile.html" id="nav-profile"> 👤 </a>
+
+    </nav>
+</html>

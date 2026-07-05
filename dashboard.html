@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div>
+            <h2>🏢 Agreement Management</h2>
+            <p>
+                Welcome,
+                <span id="username"></span>
+            </p>
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Summary -->
+
+       <section
+    class="summary-card"
+    onclick="openAgreements('all')">
+
+    <h3>Total Agreements</h3>
+
+    <div
+        class="summary-value"
+        id="totalAgreements">
+        0
+    </div>
+
+</section>
+
+<section class="stats-grid">
+
+    <div
+        class="stat-card"
+        onclick="openAgreements('Pending')">
+
+        <h4>Pending</h4>
+        <span id="pendingCount">0</span>
+
+    </div>
+
+    <div
+        class="stat-card"
+        onclick="openAgreements('Registered')">
+
+        <h4>Registered</h4>
+        <span id="registeredCount">0</span>
+
+    </div>
+
+    <div
+        class="stat-card"
+        onclick="openAgreements('Cancelled')">
+
+        <h4>Cancelled</h4>
+        <span id="cancelledCount">0</span>
+
+    </div>
+
+    <div
+        class="stat-card"
+        onclick="openRenewals()">
+
+        <h4>Renewals</h4>
+        <span id="renewalCount">0</span>
+
+    </div>
+
+</section>
+        <!-- Quick Actions -->
+
+        <section class="section">
+
+            <h3>Quick Actions</h3>
+
+            <div class="action-grid">
+
+                <button onclick="location.href='add_agreement.html'">
+                    ➕ Add Agreement
+                </button>
+
+                <button onclick="location.href='search.html'">
+                    🔍 Search
+                </button>
+                <button onclick="location.href='agreements.html'">
+                    📋 Agreements
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Activity -->
+
+        <section class="section">
+
+            <h3>Recent Activity</h3>
+
+            <div id="activityList"></div>
+
+        </section>
+
+        <!-- Renewals -->
+
+        <section class="section"
+        id="renewalSection">
+
+            <h3>Upcoming Renewals</h3>
+             <div id="renewalList"></div>
+
+            <div class="renewal-card">
+        </section>
+
+    </main>
+
+    <!-- Floating Button -->
+
+    <button
+        class="floating-btn"
+        onclick="location.href='add_agreement.html'">
+
+        +
+
+    </button>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottom-nav">
+
+        <a href="dashboard.html" id="nav-home">🏠</a>
+        <a href="agreements.html" id="nav-agreements">📋</a>
+        <!-- <a href="#" onclick="goToRenewals()"> 🔔 </a> -->
+        <a href="profile.html" id="nav-profile"> 👤 </a>
+
+    </nav>
+
+    <script>
+
+        const username =
+            localStorage.getItem("name");
+
+        if (!username) {
+            window.location.href =
+                "login.html";
+        }
+
+        document.getElementById("username")
+            .innerText = username;
+
+    </script>
+<script>
+
+async function loadDashboard(){
+
+    const response =
+        await fetch(
+            `${CONFIG.BASE_URL}/dashboard_stats`,
+        );
+
+    const data =
+        await response.json();
+
+    document.getElementById(
+        "totalAgreements"
+    ).innerText = data.total;
+
+    document.getElementById(
+        "pendingCount"
+    ).innerText = data.pending;
+
+    document.getElementById(
+        "registeredCount"
+    ).innerText = data.registered;
+
+    document.getElementById(
+        "cancelledCount"
+    ).innerText = data.cancelled;
+
+    document.getElementById(
+        "renewalCount"
+    ).innerText = data.renewals;
+}
+
+loadDashboard();
+
+</script>
+
+<script>
+
+async function loadRenewals() {
+
+    const response =
+        await fetch(
+            `${CONFIG.BASE_URL}/upcoming_renewals`,
+            
+        );
+
+    const data =
+        await response.json();
+
+    const container =
+        document.getElementById(
+            "renewalList"
+        );
+
+    container.innerHTML = "";
+
+    if(data.length === 0){
+
+        container.innerHTML =
+            "<p>No upcoming renewals</p>";
+
+        return;
+    }
+
+    data.forEach(item => {
+
+        container.innerHTML += `
+            <div class="renewal-card">
+
+                <div>
+                    <strong>
+                        ${item.building_name}
+                    </strong>
+
+                    <p>
+                        ${item.renewal_date}
+                    </p>
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+loadRenewals();
+
+</script>
+<script src="config.js"></script>
+<script src="dashboard.js"></script>
+<script>
+document
+    .getElementById("nav-home")
+    ?.classList.add("active");
+</script>
+<script>
+document
+    .getElementById("nav-agreements")
+    ?.classList.add("active");
+</script>
+
+</body>
+
+</html>
