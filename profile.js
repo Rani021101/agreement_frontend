@@ -7,13 +7,21 @@ if(!token){
         "login.html";
 }
 
-document.getElementById("name")
-    .innerText =
-    localStorage.getItem("name");
+const nameElement =
+    document.getElementById("name");
 
-document.getElementById("empId")
-    .innerText =
-    localStorage.getItem("emp_id");
+if(nameElement){
+    nameElement.innerText =
+        localStorage.getItem("name");
+}
+
+const empElement =
+    document.getElementById("empId");
+
+if(empElement){
+    empElement.innerText =
+        localStorage.getItem("emp_id");
+}
 
 loadProfile();
 
