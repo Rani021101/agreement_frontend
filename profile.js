@@ -269,18 +269,30 @@ function openUserModal(){
 async function openStatsModal(){
 
     const response =
-    await fetch(
-        `${CONFIG.BASE_URL}/dashboard_stats`,
-        {
-            headers:{
-                "Authorization":
-                    `Bearer ${token}`
+        await fetch(
+            `${CONFIG.BASE_URL}/dashboard_stats`,
+            {
+                headers:{
+                    "Authorization":
+                        `Bearer ${token}`
+                }
             }
-        }
-    );
+        );
+
+    if(response.status === 401){
+
+        localStorage.clear();
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
 
     const data =
         await response.json();
+
+    console.log("Stats Modal Data:", data);
 
     openModal(
         "📊 Statistics",
