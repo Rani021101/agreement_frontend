@@ -22,28 +22,32 @@ async function(e){
             document.getElementById("building_name").value,
 
         token_no:
-            document.getElementById("token_no").value,
+            document.getElementById("token_no").value  || null,
 
         agent_name:
             document.getElementById("agent_name").value,
 
         total_pay:
-            document.getElementById("total_pay").value,
+        document.getElementById("total_pay").value
+            ? Number(document.getElementById("total_pay").value)
+            : null,
 
         received:
-            document.getElementById("received").value,
+            document.getElementById("received").value
+                ? Number(document.getElementById("received").value)
+                : null,
 
         owner_name:
             document.getElementById("owner_name").value,
 
         owner_contact:
-            document.getElementById("owner_contact").value,
+            document.getElementById("owner_contact").value  || null,
 
         tenant_name:
             document.getElementById("tenant_name").value,
 
         tenant_no:
-            document.getElementById("tenant_no").value,
+            document.getElementById("tenant_no").value  || null,
 
         status:
             document.getElementById("status").value,

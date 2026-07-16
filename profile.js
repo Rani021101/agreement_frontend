@@ -269,9 +269,15 @@ function openUserModal(){
 async function openStatsModal(){
 
     const response =
-        await fetch(
-            `${CONFIG.BASE_URL}/dashboard_stats`
-        );
+    await fetch(
+        `${CONFIG.BASE_URL}/dashboard_stats`,
+        {
+            headers:{
+                "Authorization":
+                    `Bearer ${token}`
+            }
+        }
+    );
 
     const data =
         await response.json();
@@ -300,9 +306,15 @@ async function openStatsModal(){
 async function openRenewalModal(){
 
     const response =
-        await fetch(
-            `${CONFIG.BASE_URL}/upcoming_renewals`,
-        );
+    await fetch(
+        `${CONFIG.BASE_URL}/upcoming_renewals`,
+        {
+            headers:{
+                "Authorization":
+                    `Bearer ${token}`
+            }
+        }
+    );
 
     const data =
         await response.json();
